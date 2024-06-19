@@ -56,6 +56,22 @@ class Constructor {
     class TestUserV2(
         private val user: String,
         private val pw: String
+    )
+
+
+    /**
+     * 자주 사용되는 주생성자 전략
+     * pw는 - 를 굳이 붙이고 싶은 경우에 주생성자에 할당하지않고
+     * init 블록에서 처리한다.
+     */
+    class TestUserV3(
+        private val user: String,
+        pw: String
     ){
+        private val pw: String
+        init {
+            this.pw = pw + "-"
+        }
     }
+
 }
