@@ -6,7 +6,7 @@ class Constructor {
      */
 
     // 메인 클래스명 뒤에 괄호를 통해 생성자를 바로 생성 가능 -> 주생성자
-    class TestUser(user: String, pw: String){
+    class TestUserV1(user: String, pw: String){
         private val user: String
         private val pw: String
 
@@ -42,5 +42,20 @@ class Constructor {
 
          */
 
+    }
+
+
+
+
+
+    /**
+     * 코틀린에서는 멤버변수의 속성을 주 생성자의 인자로 선언할 수 있다.
+     * 주 생성자에 멤버변수 속성을 정의함으로써
+     * this.user = user 같은 생성 구문 모두 생략가능
+     */
+    class TestUserV2(
+        private val user: String,
+        private val pw: String
+    ){
     }
 }
