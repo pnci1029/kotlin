@@ -54,6 +54,12 @@ class JsonStringify {
     }
 
     class Json0(val a:Int, val b:String)
+    class Json1(@Ex val a:Int, @Name(name = "title") val b:String)
+
+    /**
+     * {"title":"bdbdf"}
+     * 로 나오길 원함
+     */
 
     fun main(args:Array<String>){
         println(stringifyV1(Json0(11,"bdbdf")))
