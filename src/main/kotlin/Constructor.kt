@@ -74,4 +74,26 @@ class Constructor {
         }
     }
 
+
+    /**
+     * 생성자에 따라 인자의 데이터 타입이 바뀌어야 하는 경우
+
+     * 부생성자만 사용(자바 스타일)
+     * 권장되지는 않음..
+     */
+    class TestUserV4{
+        private val user:String
+        private val pw:String
+
+        constructor(user: String, pw: String){
+            this.user = user
+            this.pw = pw + "-"
+        }
+
+        constructor(user: String, pw:Double){
+            this.user = user
+            this.pw = "$pw-"
+        }
+
+    }
 }
