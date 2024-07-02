@@ -25,11 +25,12 @@ object ThreadLooper:Looper {
         private set
 
     override fun start() {
-        TODO("Not yet implemented")
+        isRunning = true
+        if(!thread.isAlive) thread.start()
     }
 
     override fun end() {
-        TODO("Not yet implemented")
+        isRunning = false
     }
 
 
