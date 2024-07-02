@@ -1,10 +1,12 @@
 package oop
 
+import java.time.Clock
+
 
 /**
  * 1. loopper 는 돌면서 user를 체크한다
  */
-class Looper (
+open class Looper (
     private val started:(Looper) ->Unit
     private val ended:(Looper) ->Unit
 ){
@@ -25,5 +27,17 @@ class Looper (
         isRunning = false
         ended(this)
     }
+
+    val threadLooper =  Looper({
+        val thread = Thread{
+            while (it.isRunning && !Thread.currentThread().isInterrupted){
+                val now = Clock.systemDefaultZone()
+
+                Looper.users.forEach { it.send(now) }
+                Thread.sleep(1000)
+            }
+        }
+        if(!thread.isAlive) thread.start()
+    }) {}
 
 }
