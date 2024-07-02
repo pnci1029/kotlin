@@ -2,7 +2,7 @@ package oop
 
 import java.time.Clock
 
-object ThreadLooper:Looper {
+object ThreadLooper: Looper() {
     /**
      * lazy -> 지연생성델리게이트
      * 중괄호에 포함된 내용을 thread라는 속성이 사용되기전까지
@@ -21,17 +21,31 @@ object ThreadLooper:Looper {
         }
     }
 
-    var isRunning = false
-        private set
 
-    override fun start() {
-        isRunning = true
+    /**
+     * V2
+     */
+    override fun started() {
         if(!thread.isAlive) thread.start()
     }
 
-    override fun end() {
-        isRunning = false
+    override fun ended() {
+        TODO("Not yet implemented")
     }
+    /**
+     * V1
+     */
+//    var isRunning = false
+//        private set
+//
+//    override fun start() {
+//        isRunning = true
+//        if(!thread.isAlive) thread.start()
+//    }
+//
+//    override fun end() {
+//        isRunning = false
+//    }
 
 
 }
