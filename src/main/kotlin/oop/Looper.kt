@@ -4,11 +4,13 @@ package oop
 /**
  * 1. loopper 는 돌면서 user를 체크한다
  */
-abstract class Looper {
+class Looper (
+    private val started:(Looper) ->Unit
+    private val ended:(Looper) ->Unit
+){
     companion object{
         var users = hashSetOf<User>()
     }
-
 
     /**
      속성은 없고 기능만 있으면 -> 인터페이스
@@ -17,13 +19,11 @@ abstract class Looper {
     var isRunning=false
     fun start(){
         isRunning = true
-        started()
+        started(this)
     }
     fun end(){
         isRunning = false
-        ended()
+        ended(this)
     }
 
-    protected abstract fun started()
-    protected abstract fun ended()
 }
