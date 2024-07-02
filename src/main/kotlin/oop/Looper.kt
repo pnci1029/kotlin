@@ -1,6 +1,5 @@
 package oop
 
-import oop.ThreadLooper.isRunning
 
 /**
  * 1. loopper 는 돌면서 user를 체크한다
